@@ -30,7 +30,6 @@ public class Clue extends JFrame implements Runnable {
 
                 if (e.BUTTON3 == e.getButton()) {
                     Player.Reset();
-                    Board.Reset();
                 }
                 repaint();
             }
@@ -93,10 +92,10 @@ public class Clue extends JFrame implements Runnable {
         int x[] = {Window.getX(0), Window.getX(Window.getWidth2()), Window.getX(Window.getWidth2()), Window.getX(0), Window.getX(0)};
         int y[] = {Window.getY(0), Window.getY(0), Window.getY(Window.getHeight2()), Window.getY(Window.getHeight2()), Window.getY(0)};
 //fill border
-        g.setColor(Color.white);
+        g.setColor(Color.LIGHT_GRAY);
         g.fillPolygon(x, y, 4);
 // draw border
-        g.setColor(Color.red);
+        g.setColor(Color.white);
         g.drawPolyline(x, y, 5);
 
         if (animateFirstTime) {
@@ -104,7 +103,7 @@ public class Clue extends JFrame implements Runnable {
             return;
         }
         
-              
+        System.out.println("In Paint");
         Board.Draw(g);
 
         gOld.drawImage(image, 0, 0, null);
@@ -128,7 +127,7 @@ public class Clue extends JFrame implements Runnable {
 /////////////////////////////////////////////////////////////////////////
     public void reset() {
         Player.Reset();
-        Board.Reset();
+       
     }
 /////////////////////////////////////////////////////////////////////////
     public void animate() {
